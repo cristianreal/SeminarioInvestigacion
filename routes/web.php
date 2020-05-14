@@ -17,8 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/marca',function () {
-    return view('layouts.base');
+Route::group(['prefix' => 'marca'], function(){
+
+    Route::get('crear',  function(){
+        return view('marcas.crear');
+    });
+    Route::post('crear', 'MarcasController@createPost');
+    Route::get('editar/{cpk_marca}',  'MarcasController@editGet');
+    Route::post('editar/{cpk_marca}', 'MarcasController@editPost');
+    Route::get('eliminar/{cpk_marca}', 'MarcasController@deleteGet');
+    Route::get('listar', 'MarcasController@listar');
+
 });
 
 Auth::routes();
