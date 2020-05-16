@@ -4,15 +4,6 @@
 <div class="jumbotron">
     <form method="POST">
     @csrf
-        @if (session('success'))
-            <div class="alert alert-dismissible alert-secondary">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>{{ session('success') }}</strong>
-            </div>
-            <script>
-                $('div.alert').delay(3000).slideUp(300);
-            </script>
-        @endif
         <h1 align="center" class="display-3">Editar Marca</h1>
         <hr class="my-4">
 
