@@ -14,18 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vendedores.crear');
 });
 
-Route::get('/marca',function () {
-    return view('layouts.base');
-});
+//Route::get('/marca',function () {
+//    return view('layouts.base');
+//});
 
-Route::group(['prefix' => 'vendedores'], function(){
+Route::group(['prefix' => 'vendedor'], function(){
     
     Route::get('crear',  function(){
         return view('vendedores.crear');
     });
+    Route::post('crear', 'VendedoresController@createPost');
+
 });
 
 Auth::routes();
