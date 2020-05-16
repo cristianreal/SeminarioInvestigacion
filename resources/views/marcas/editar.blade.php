@@ -4,10 +4,10 @@
 <div class="jumbotron">
     <form method="POST">
     @csrf
-        @if (session('alert'))
+        @if (session('success'))
             <div class="alert alert-dismissible alert-secondary">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>{{ session('alert') }}</strong>
+                <strong>{{ session('success') }}</strong>
             </div>
             <script>
                 $('div.alert').delay(3000).slideUp(300);
