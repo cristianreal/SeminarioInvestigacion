@@ -21,6 +21,13 @@ Route::get('/marca',function () {
     return view('layouts.base');
 });
 
+Route::group(['prefix' => 'vendedores'], function(){
+    
+    Route::get('crear',  function(){
+        return view('vendedores.crear');
+    });
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
