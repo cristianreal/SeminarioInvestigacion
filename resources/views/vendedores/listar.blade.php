@@ -13,27 +13,37 @@
                 <strong>{{ session('delete') }}</strong>
         </div>
     @endif
-        <h1 align="center" class="display-3">Listar Marcas</h1>
+        <h1 align="center" class="display-3">Lista de Vendedores</h1>
         <hr class="my-4">
 
         <table class="table table-hover">
             <thead>
                 <tr class="table-secondary">
                     <th scope="col">Nombre</th>
-                    <th scope="col">Pais</th>
-                    <th scope="col">Web Page</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Jornada</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($catalogoMarcas as $marca)
+                @foreach ($catalogoVendedores as $vendedor)
                 <tr class="table-primary">
-                    <td>{{ $marca->nombre }}</td>
-                    <td>{{ $marca->pais }}</td>
-                    <td>{{ $marca->pagina_web }}</td>
+                    <td>{{ $vendedor->nombre }}</td>
+                    <td>{{ $vendedor->apellido }}</td>
+                    <td>{{ $vendedor->direccion }}</td>
+                    <td>{{ $vendedor->telefono }}</td>
+                    <td>{{ $vendedor->email }}</td>
+                    @if ($vendedor->jornada)
+                        <td>Matutina</td>
+                    @else
+                        <td>Vespertina</td>
+                    @endif
                     <td>
-                        <a class="btn btn-info" href="/marca/editar/{{ $marca->pk_marca }}">Editar</a>
-                        <a class="btn btn-warning" href="/marca/eliminar/{{ $marca->pk_marca }}">Eliminar</a>
+                        <a class="btn btn-info" href="/vendedor/editar/{{ $vendedor->pk_vendedor }}">Editar</a>
+                        <a class="btn btn-warning" href="/vendedor/eliminar/{{ $vendedor->pk_vendedor }}">Eliminar</a>
                     </td>
                 </tr>
                 @endforeach

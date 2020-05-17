@@ -27,6 +27,10 @@ Route::group(['prefix' => 'vendedor'], function(){
         return view('vendedores.crear');
     });
     Route::post('crear', 'VendedoresController@createPost');
+    Route::get('editar/{cpk_vendedor}',  'VendedoresController@editGet');
+    Route::post('editar/{cpk_vendedor}', 'VendedoresController@editPost');
+    Route::get('eliminar/{cpk_vendedor}', 'VendedoresController@deleteGet');
+    Route::get('listar', 'VendedoresController@listar');
 
 });
 
