@@ -21,6 +21,19 @@ Route::get('/marca',function () {
     return view('layouts.base');
 });
 
+Route::group(['prefix' => 'proveedor'], function(){
+    
+    Route::get('crear',  function(){
+        return view('proveedor.crear');
+    });
+    Route::post('crear', 'ProveedoresController@createPost');
+    Route::get('editar/{cpk_proveedor}',  'ProveedoresController@editGet');
+    Route::post('editar/{cpk_proveedor}', 'ProveedoresController@editPost');
+    Route::get('eliminar/{cpk_proveedor}', 'ProveedoresController@deleteGet');
+    Route::get('listar', 'ProveedoresController@listar');
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
