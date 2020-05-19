@@ -14,33 +14,33 @@
         <hr class="my-4">
         
         <div class="form-group">
-            <label class="col-form-label" for="nameseller">Nombre proveedor</label>
-            <input type="text" class="form-control" placeholder="Ingrese el nombre" id="nameseller" name="nameseller">
+            <label class="col-form-label" for="namebuyer">Nombre proveedor</label>
+            <input type="text" class="form-control" placeholder="Ingrese el nombre" id="namebuyer" name="namebuyer">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="lastnameseller">Apellido proveedor</label>
-            <input type="text" class="form-control" placeholder="Ingrese el apellido" id="lastnameseller" name="lastnameseller">
+            <label class="col-form-label" for="lastnamebuyer">Apellido proveedor</label>
+            <input type="text" class="form-control" placeholder="Ingrese el apellido" id="lastnamebuyer" name="lastnamebuyer">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="dirseller">Direccion domiciliar</label>
-            <input type="text" class="form-control" placeholder="Ingrese la direccion de su domicilio" id="dirseller" name="dirseller">
+            <label class="col-form-label" for="dirbuyer">Direccion domiciliar</label>
+            <input type="text" class="form-control" placeholder="Ingrese la direccion de su domicilio" id="dirbuyer" name="dirbuyer">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="telseller">Telefono</label>
-            <input type="text" class="form-control" placeholder="Ingrese el numero de telefono" id="telseller" name="telseller">
+            <label class="col-form-label" for="telbuyer">Telefono</label>
+            <input type="text" class="form-control" placeholder="Ingrese el numero de telefono" id="telbuyer" name="telbuyer">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="emailseller">Email</label>
-            <input type="text" class="form-control" placeholder="Ingrese la direccion de correo electronico" id="emailseller" name="emailseller">
+            <label class="col-form-label" for="emailbuyer">Email</label>
+            <input type="text" class="form-control" placeholder="Ingrese la direccion de correo electronico" id="emailbuyer" name="emailbuyer">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="genderseller">Genero</label>
-            <select class="custom-select" id="genderseller" name="genderseller">
+            <label class="col-form-label" for="genderbuyer">Genero</label>
+            <select class="custom-select" id="genderbuyer" name="genderbuyer">
                 <option selected="">Seleccione el genero</option>
                 <option value="1">Masculino</option>
                 <option value="2">Femenino</option>
@@ -58,8 +58,8 @@
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="ciudad">Ciudad</label>
-            <input type="text" class="form-control" placeholder="Ingrese la direccion de correo electronico" id="ciudad" name="ciudad">
+            <label class="col-form-label" for="city">Ciudad</label>
+            <input type="text" class="form-control" placeholder="Ingrese la direccion de correo electronico" id="city" name="city">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Guardar">

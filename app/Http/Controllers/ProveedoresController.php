@@ -3,74 +3,80 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use DB;
 
 class ProveedoresController extends Controller
 {
         
     public function createPost(Request $request)
     {
-        $nameseller = $request->input('nameseller');
-        $lastnameseller = $request->input('lastnameseller');
-        $dirseller = $request->input('dirseller');
-        $telseller = $request->input('telseller');
-        $emailseller = $request->input('emailseller');
-        $genderseller = $request->input('genderseller');
-        $borndateseller = $request->input('borndateseller');
-        $initdateseller = $request->input('initdateseller');
-        $journalseller = $request->input('journalseller');
+        $namebuyer = $request->input('namebuyer');
+        $lastnamebuyer = $request->input('lastnamebuyer');
+        $dirbuyer = $request->input('dirbuyer');
+        $telbuyer = $request->input('telbuyer');
+        $emailbuyer = $request->input('emailbuyer');
+        $genderbuyer = $request->input('genderbuyer');
+        $webpage = $request->input('webpage');
+        $country = $request->input('country');
+        $city = $request->input('city');
 
-        $submit = DB::select('call Vendedor_Crear(?,?,?,?,?,?,?,?,?)',
-                    array(  $nameseller, $lastnameseller, $dirseller, 
-                            $telseller, $emailseller, $genderseller, 
-                            $borndateseller, $initdateseller, $journalseller ));
+        $submit = DB::select('call Proveedor_Crear(?,?,?,?,?,?,?,?,?)',
+                    array(  $namebuyer, $lastnamebuyer, $dirbuyer, 
+                            $telbuyer, $emailbuyer, $genderbuyer, 
+                            $webpage, $country, $city ));
 
-        return redirect()->back()->with('success', 'Vendedor creada EXITOSAMENTE!');
+        return redirect()->back()->with('success', 'Proveedor creado EXITOSAMENTE!');
     }
 
     public function listar()
     {
-        $catalogoVendedores = DB::select('call Vendedor_Listar()',array());
-        return view('vendedores.listar',["catalogoVendedores"=>$catalogoVendedores]);
+        $catalogoProveedores = DB::select('call Proveedor_Listar()',array());
+        return view('proveedores.listar',["catalogoProveedores"=>$catalogoProveedores]);
     }
 
-    public function editGet(int $cpk_vendedor)
+    public function editGet(int $cpk_proveedor)
     {
-        $submit = DB::select('call Vendedor_Buscar_Por_Id(?)',array( $cpk_vendedor ));
+        $submit = DB::select('call Proveedor_Buscar_Por_Id(?)',array( $cpk_proveedor ));
         //dd($submit);
-        return view('vendedores.editar',["vendedor"=>$submit[0]]);
+        return view('proveedores.editar',["proveedor"=>$submit[0]]);
     }
 
     public function editPost(Request $request)
     {
-        $idseller       = $request->input('idseller');
-        $nameseller     = $request->input('nameseller');
-        $lastnameseller = $request->input('lastnameseller');
-        $dirseller      = $request->input('dirseller');
-        $telseller      = $request->input('telseller');
-        $emailseller    = $request->input('emailseller');
-        $journalseller  = $request->input('journalseller');
+        $idbuyer       = $request->input('idbuyer');
+        $namebuyer     = $request->input('namebuyer');
+        $lastnamebuyer = $request->input('lastnamebuyer');
+        $dirbuyer      = $request->input('dirbuyer');
+        $telbuyer      = $request->input('telbuyer');
+        $emailbuyer    = $request->input('emailbuyer');
+        $webpage  = $request->input('webpage');
+        $country  = $request->input('country');
+        $city     = $request->input('city');
 
-        $submit = DB::select('call Vendedor_Modificar(?,?,?,?,?,?,?)',array( 
-            $idseller,
-            $nameseller,
-            $lastnameseller,
-            $dirseller,
-            $telseller,
-            $emailseller,
-            $journalseller
+        $submit = DB::select('call Proveedor_Modificar(?,?,?,?,?,?,?,?,?)',array( 
+            $idbuyer,
+            $namebuyer,
+            $lastnamebuyer,
+            $dirbuyer,
+            $telbuyer,
+            $emailbuyer,
+            $webpage,
+            $country,
+            $city
          ));
         if(count($submit)==0){
-            return redirect('/vendedor/listar')->with('success',"Vendedor editado EXITOSAMENTE!");
+            return redirect('/proveedor/listar')->with('success',"Proveedor editado EXITOSAMENTE!");
         }else{
             return Redirect::back()->with('errors', json_encode($submit[0]));
         }
     }
 
-    public function deleteGet(int $cpk_vendedor)
+    public function deleteGet(int $cpk_proveedor)
     {
-        $submit = DB::select('call Vendedor_Eliminar(?)',array( $cpk_vendedor ));
+        $submit = DB::select('call Proveedor_Eliminar(?)',array( $cpk_proveedor ));
         if(count($submit)==0){
-            return redirect('/vendedor/listar')->with('delete',"Vendedor eliminado EXITOSAMENTE!");
+            return redirect('/proveedor/listar')->with('delete',"Proveedor eliminado EXITOSAMENTE!");
         }else{
             return Redirect::back()->with('errors', json_encode($submit[0]));
         }

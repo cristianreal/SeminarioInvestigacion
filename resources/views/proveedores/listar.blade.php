@@ -24,26 +24,28 @@
                     <th scope="col">Direccion</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Jornada</th>
+                    <th scope="col">Pagina Web</th>
+                    <th scope="col">Pais</th>
+                    <th scope="col">Ciudad</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($catalogoVendedores as $vendedor)
+                @foreach ($catalogoProveedores as $proveedor)
                 <tr class="table-primary">
-                    <td>{{ $vendedor->nombre }}</td>
-                    <td>{{ $vendedor->apellido }}</td>
-                    <td>{{ $vendedor->direccion }}</td>
-                    <td>{{ $vendedor->telefono }}</td>
-                    <td>{{ $vendedor->email }}</td>
-                    @if ($vendedor->jornada)
-                        <td>Matutina</td>
-                    @else
-                        <td>Vespertina</td>
-                    @endif
+                    <td>{{ $proveedor->nombre }}</td>
+                    <td>{{ $proveedor->apellido }}</td>
+                    <td>{{ $proveedor->direccion }}</td>
+                    <td>{{ $proveedor->telefono }}</td>
+                    <td>{{ $proveedor->email }}</td>
+
+                    <td>{{ $proveedor->pagina_web }}</td>
+                    <td>{{ $proveedor->pais }}</td>
+                    <td>{{ $proveedor->ciudad }}</td>
+
                     <td>
-                        <a class="btn btn-info" href="/vendedor/editar/{{ $vendedor->pk_vendedor }}">Editar</a>
-                        <a class="btn btn-warning" href="/vendedor/eliminar/{{ $vendedor->pk_vendedor }}">Eliminar</a>
+                        <a class="btn btn-info" href="/proveedor/editar/{{ $proveedor->pk_proveedor }}">Editar</a>
+                        <a class="btn btn-warning" href="/proveedor/eliminar/{{ $proveedor->pk_proveedor }}">Eliminar</a>
                     </td>
                 </tr>
                 @endforeach

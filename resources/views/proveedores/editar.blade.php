@@ -8,46 +8,48 @@
         <hr class="my-4">
 
         <div class="form-group">
-            <label class="col-form-label" for="idseller">ID del vendedor</label>
-            <input type="text" class="form-control" id="idseller" name="idseller" value="{{ $vendedor->pk_vendedor }}" readonly="">
+            <label class="col-form-label" for="idbuyer">ID del proveedor</label>
+            <input type="text" class="form-control" id="idbuyer" name="idbuyer" value="{{ $proveedor->pk_proveedor }}" readonly="">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="nameseller">Nombre del vendedor</label>
-            <input type="text" class="form-control" id="nameseller" name="nameseller" value="{{ $vendedor->nombre }}">
+            <label class="col-form-label" for="namebuyer">Nombre del proveedor</label>
+            <input type="text" class="form-control" id="namebuyer" name="namebuyer" value="{{ $proveedor->nombre }}">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="lastnameseller">Apellido del vendedor</label>
-            <input type="text" class="form-control" id="lastnameseller" name="lastnameseller" value="{{ $vendedor->apellido }}">
+            <label class="col-form-label" for="lastnamebuyer">Apellido del proveedor</label>
+            <input type="text" class="form-control" id="lastnamebuyer" name="lastnamebuyer" value="{{ $proveedor->apellido }}">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="dirseller">Direccion del vendedor</label>
-            <input type="text" class="form-control" id="dirseller" name="dirseller" value="{{ $vendedor->direccion }}">
+            <label class="col-form-label" for="dirbuyer">Direccion del proveedor</label>
+            <input type="text" class="form-control" id="dirbuyer" name="dirbuyer" value="{{ $proveedor->direccion }}">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="telseller">Telefono del vendedor</label>
-            <input type="text" class="form-control" id="telseller" name="telseller" value="{{ $vendedor->telefono }}">
+            <label class="col-form-label" for="telbuyer">Telefono del proveedor</label>
+            <input type="text" class="form-control" id="telbuyer" name="telbuyer" value="{{ $proveedor->telefono }}">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="emailseller">Email del vendedor</label>
-            <input type="text" class="form-control" id="emailseller" name="emailseller" value="{{ $vendedor->email }}">
+            <label class="col-form-label" for="emailbuyer">Email del proveedor</label>
+            <input type="text" class="form-control" id="emailbuyer" name="emailbuyer" value="{{ $proveedor->email }}">
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="journalseller">Jornada del vendedor</label>
-            <select class="custom-select" id="journalseller" name="journalseller">
-                @if($vendedor->jornada)
-                    <option value="1" selected="">Matutina</option>
-                @else
-                    <option value="2" selected="">Vespertina</option>
-                @endif
-                <option value="1">Matutina</option>
-                <option value="2">Vespertina</option>
-            </select>
+            <label class="col-form-label" for="webpage">Pagina Web</label>
+            <input type="text" class="form-control" id="webpage" name="webpage" value="{{ $proveedor->pagina_web }}">
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label" for="country">Pais del proveedor</label>
+            <input type="text" class="form-control" id="country" name="country" value="{{ $proveedor->pais }}">
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label" for="city">Ciudad del proveedor</label>
+            <input type="text" class="form-control" id="city" name="city" value="{{ $proveedor->ciudad }}">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Guardar">
