@@ -14,11 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vendedores.crear');
 });
 
-Route::get('/marca',function () {
-    return view('layouts.base');
+//Route::get('/marca',function () {
+//    return view('layouts.base');
+//});
+
+Route::group(['prefix' => 'vendedor'], function(){
+    
+    Route::get('crear',  function(){
+        return view('vendedores.crear');
+    });
+    Route::post('crear', 'VendedoresController@createPost');
+    Route::get('editar/{cpk_vendedor}',  'VendedoresController@editGet');
+    Route::post('editar/{cpk_vendedor}', 'VendedoresController@editPost');
+    Route::get('eliminar/{cpk_vendedor}', 'VendedoresController@deleteGet');
+    Route::get('listar', 'VendedoresController@listar');
+
 });
 
 Route::group(['prefix' => 'proveedor'], function(){

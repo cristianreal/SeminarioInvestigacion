@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcas</title>
+    <title>Sistema de almacenamiento</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/solar/bootstrap.min.css" rel="stylesheet" integrity="sha384-8nq3OiMMgrVFAHyRMMO+DTfMEciSY+c3Awhj/5ljQ1xck1Uv2BUtMjsjLD8GT5Er" crossorigin="anonymous">
 </head>
@@ -27,9 +27,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Vendedores</a>
                     <div class="dropdown-menu" style="">
-                        <a class="dropdown-item" href="#">Crear</a>
-                        <a class="dropdown-item" href="#">Editar</a>
-                        <a class="dropdown-item" href="#">Eliminar</a>
+                        <a class="dropdown-item" href="/vendedor/crear">Crear</a>
+                        <a class="dropdown-item" href="/vendedor/listar">Listar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
