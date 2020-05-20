@@ -44,6 +44,18 @@ Route::group(['prefix' => 'proveedor'], function(){
     Route::post('editar/{cpk_proveedor}', 'ProveedoresController@editPost');
     Route::get('eliminar/{cpk_proveedor}', 'ProveedoresController@deleteGet');
     Route::get('listar', 'ProveedoresController@listar');
+});
+
+Route::group(['prefix' => 'marca'], function(){
+
+    Route::get('crear',  function(){
+        return view('marcas.crear');
+    });
+    Route::post('crear', 'MarcasController@createPost');
+    Route::get('editar/{cpk_marca}',  'MarcasController@editGet');
+    Route::post('editar/{cpk_marca}', 'MarcasController@editPost');
+    Route::get('eliminar/{cpk_marca}', 'MarcasController@deleteGet');
+    Route::get('listar', 'MarcasController@listar');
 
 });
 
