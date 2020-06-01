@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+# ----------------------------------------------------------------
+  dbInventario:
+    image: 'bitnami/mariadb:10.1'
+    ports:
+      - '3307:3306'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=my_user
+      - MARIADB_DATABASE=inventario
+      - MARIADB_PASSWORD=my_password
+      - MARIADB_ROOT_PASSWORD=@123Password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+      - ./scripts:/scripts
+# ----------------------------------------------------------------
+  phpmyadmin:
+    depends_on:
+      - dbInventario
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: dbInventario
+      MYSQL_ROOT_PASSWORD: my_password 
+# ----------------------------------------------------------------
+  inventario:
+    tty: true
+    image: bitnami/laravel:7-debian-10
+    ports:
+      - 80:3000
+    environment:
+      - DB_HOST=dbInventario
+      - DB_USERNAME=my_user
+      - DB_DATABASE=inventario
+      - DB_PASSWORD=my_password
+    depends_on:
+      - dbInventario
+    volumes:
+      - ./sistema_almacenamiento/:/app
+# ----------------------------------------------------------------
+#docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
