@@ -1,4 +1,4 @@
-#JORNADA = 1->Matutina, 2->Vespertina
+-- JORNADA = 1->Matutina, 2->Vespertina
 DROP TABLE IF EXISTS vendedor;
 CREATE TABLE vendedor(
 	pk_vendedor			INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
